@@ -7,7 +7,7 @@
     <RootNamespace>Orleans.Streams.Kafka</RootNamespace>
 
     <!-- NuGet Package Metadata -->
-    <PackageId>Orleans.Streams.Kafka</PackageId>
+    <PackageId>Orleans.Streams.Kafka.Provider</PackageId>
     <Version>2.0.0</Version>
     <Authors>Orleans.Streams.Kafka Contributors</Authors>
     <Description>A Kafka Stream Provider for Microsoft Orleans. Enables Orleans Grains to produce and consume messages via Apache Kafka.</Description>
