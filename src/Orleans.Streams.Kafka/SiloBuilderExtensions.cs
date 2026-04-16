@@ -12,18 +12,14 @@ public static class SiloBuilderExtensions
         string name,
         Action<KafkaStreamOptions> configureOptions)
     {
-        builder.AddPersistentStreams(name, KafkaQueueAdapterFactory.Create, stream =>
+        builder.Services.AddOptions<KafkaStreamOptions>(name).Configure(configureOptions);
+        builder.Services.AddOptions<SimpleQueueCacheOptions>(name).Configure(options =>
         {
-            stream.Configure<KafkaStreamOptions>(ob => ob.Configure(configureOptions));
-            stream.Configure<SimpleQueueCacheOptions>(ob => ob.Configure(options =>
-            {
-                options.CacheSize = 4096;
-            }));
-            stream.Configure<HashRingStreamQueueMapperOptions>(ob => ob.Configure(options =>
-            {
-                // Will be overridden by NumOfQueues in factory
-            }));
+            options.CacheSize = 4096;
         });
+
+        builder.AddPersistentStreams(name, KafkaQueueAdapterFactory.Create, stream => { });
+
         return builder;
     }
 }

@@ -18,12 +18,12 @@
 - Topic 前缀/映射
 - 序列化方式（默认 JSON）
 - 消费者轮询间隔
-- 批量大小
+- 轮询批量大小
 
 ### 非功能需求
-- 支持 .NET 8+
+- 支持 .NET 8 和 .NET 9（多目标框架）
 - 依赖 `Confluent.Kafka` 作为 Kafka 客户端
-- 依赖 `Microsoft.Orleans.Streaming` 作为 Orleans 流框架
+- 依赖 `Microsoft.Orleans.Streaming`（net8.0 对应 8.0.0+，net9.0 对应 9.2.1+）
 - 可发布到 NuGet.org
 - 包含完整的 NuGet 包元数据（作者、许可证、描述等）
 
@@ -42,8 +42,8 @@ Apache Kafka Broker
 
 ## NuGet 包信息
 - **Package ID**: Orleans.Streams.Kafka.Provider
-- **Target Framework**: net8.0
+- **Target Frameworks**: net8.0, net9.0
 - **License**: MIT
 - **Dependencies**:
-  - Microsoft.Orleans.Streaming >= 8.0.0
+  - Microsoft.Orleans.Streaming >= 8.0.0 (net8.0) / >= 9.2.1 (net9.0)
   - Confluent.Kafka >= 2.3.0

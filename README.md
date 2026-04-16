@@ -5,7 +5,7 @@ A Kafka Stream Provider for Microsoft Orleans that enables Grains to produce and
 ## Installation
 
 ```bash
-dotnet add package Orleans.Streams.Kafka
+dotnet add package Orleans.Streams.Kafka.Provider
 ```
 
 ## Quick Start
@@ -62,7 +62,15 @@ public class ConsumerGrain : Grain, IConsumerGrain, IAsyncObserver<string>
 | `ConsumerGroupId` | `orleans` | Consumer group ID |
 | `Topics` | `[]` | Topics to subscribe |
 | `PollTimeoutMs` | `100` | Consumer poll timeout (ms) |
+| `PollBatchSize` | `100` | Max messages per poll batch |
 | `NumOfQueues` | `8` | Number of queue partitions |
+
+## Compatibility
+
+| Target Framework | Orleans Version |
+|------------------|-----------------|
+| net8.0 | 8.0.0+ |
+| net9.0 | 9.2.1+ |
 
 ## License
 
